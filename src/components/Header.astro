@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon/components';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header class="p-5">
+	<nav class="flex items-center justify-between rounded-full bg-gray-100 px-6">
+		<h2 class="invisible md:visible"><a href="/" class="text-6xl ">🦦</a></h2>
+		<div class="flex flex-row gap-3 md:gap-8">
+			<HeaderLink href="/">About Me</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+		</div>
+		<div class="flex invisible md:visible">
+			<a href="https://github.com/eiffelwong1" target="_blank">
+				<Icon name="mdi:github" class="w-8 h-8" />
+			</a>
+		</div>
+	</nav>
+</header>

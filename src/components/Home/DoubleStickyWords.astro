@@ -1,0 +1,14 @@
+---
+const { TopWords, BottomWords } = Astro.props;
+---
+
+<div class="relative w-full">
+  <div class="sticky top-0">
+    <div class="text-5xl">{TopWords}</div>
+  </div>
+  <div class="pb-[100vh]"></div>
+  <div class="sticky top-16">
+    <div class="text-3xl">{BottomWords}</div>
+  </div>
+  <div class="pb-[100vh]"></div>
+</div>
