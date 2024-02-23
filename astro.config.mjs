@@ -9,11 +9,5 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://eiffelwong1.github.io",
-  integrations: [
-    mdx({ syntaxHighlight: "shiki" }),
-    sitemap(),
-    tailwind(),
-    react(),
-    icon(),
-  ],
+  integrations: [mdx(), sitemap(), tailwind(), react(), icon()],
 });
