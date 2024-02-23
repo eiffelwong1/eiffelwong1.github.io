@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import clsx from "clsx";
 
 type Props = HTMLAttributes<"a">;
 
@@ -12,7 +11,11 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 
 <a
   href={href}
-  class:list={[className, "text-black sm:p-3.5", { "font-extrabold border-b-4 border-sky-500": isActive }]}
+  class:list={[
+    className,
+    "text-black sm:p-3.5",
+    { "font-extrabold border-b-4 border-sky-500": isActive },
+  ]}
   {...props}
 >
   <slot />
