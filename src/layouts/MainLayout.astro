@@ -1,0 +1,24 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Contacts from "../components/Home/Contacts.astro";
+import ProjectCard from "../components/ui/ProjectCard.astro";
+import OpenSourceCard from "../components/ui/OpenSourceCard.astro";
+import HeroSection from "../components/Home/HeroSection.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="">
+    <main class="w-full bg-repeat bg-wiggle bg-slate-800 p-6">
+      <Header title={SITE_TITLE} />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

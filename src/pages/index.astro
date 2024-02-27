@@ -8,6 +8,7 @@ import ProjectCard from "../components/ui/ProjectCard.astro";
 import { getCollection } from "astro:content";
 import OpenSourceCard from "../components/ui/OpenSourceCard.astro";
 import HeroSection from "../components/Home/HeroSection.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const open_source = (await getCollection("open_source")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -18,42 +19,35 @@ const project = (await getCollection("project")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="">
-    
-    <main class="w-full bg-repeat bg-wiggle bg-slate-800 p-6">
-      <Header title={SITE_TITLE} />
-      <HeroSection />
-      <div class="bg-repeat">
-        <div class="w-full">
-          <Contacts />
-        </div>
-        <div>
-          <h2 class="text-white">Projects</h2>
-          <div class="flex gap-4 items-center overflow-auto">
-            {project.map((project) => <ProjectCard {...project.data} />)}
-          </div>
-        </div>
-        <div>
-          <h2 class="text-white">Open Source Contribution</h2>
-          <div class="flex gap-4 items-center overflow-auto">
-            {
-              open_source.map((open_source) => (
-                <OpenSourceCard {...open_source.data} />
-              ))
-            }
-            <img src="/farmer_meme.webp" alt="Farmer meme" class="h-96" />
-          </div>
-          <div>
-            <h2>Continue Improvements</h2>
-          </div>
-        </div>
+<MainLayout>
+  <HeroSection />
+  <div class="bg-repeat">
+    <div class="w-full">
+      <Contacts />
+    </div>
+    <div>
+      <h2 class="text-white">Projects</h2>
+      <div class="flex gap-4 items-center overflow-auto">
+        {project.map((project) => <ProjectCard {...project.data} />)}
       </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+    </div>
+    <div>
+      <h2 class="text-white">Open Source Contribution</h2>
+      <div class="flex gap-4 overflow-auto">
+        {
+          open_source.map((open_source) => (
+            <OpenSourceCard {...open_source.data} />
+          ))
+        }
+        <img
+          src="/farmer_meme.webp"
+          alt="Farmer meme"
+          class="h-96 self-center"
+        />
+      </div>
+      <div>
+        <h2>Continue Improvements</h2>
+      </div>
+    </div>
+  </div>
+</MainLayout>

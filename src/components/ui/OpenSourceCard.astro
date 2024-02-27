@@ -3,26 +3,28 @@ const { eventName, heroImage, date, location, projectName, links } =
   Astro.props;
 ---
 
-<astro:card class="bg-slate-100 p-6 rounded-3xl">
-  {heroImage && <img src={heroImage} alt="Project Photo" class="max-w-96" />}
-  <h3>{eventName}</h3>
-  <p>{date}</p>
+<astro:card class="bg-slate-100 p-6 rounded-3xl card min-w-96">
+  <figure class="w-full">
+    {heroImage && <img src={heroImage} alt="Project Photo" class="object-cover h-44 w-96" />}
+  </figure>
+  <div class="card-body">
+    <h3 class="card-title text-2xl">{eventName}</h3>
+    <p>{date}</p>
 
-  <h2>{projectName}</h2>
-  <p>{location}</p>
+    <h2 class="text-4xl">{projectName}</h2>
+    <p>{location}</p>
 
-
-
-  <ul class="flex flex-col">
-    {
-      links &&
-        links.map((link: { url: string; name: string }) => {
-          return (
-            <li>
-              <a href={link.url}>• {link.name}</a>
-            </li>
-          );
-        })
-    }
-  </ul>
+    <ul class="flex flex-col">
+      {
+        links &&
+          links.map((link: { url: string; name: string }) => {
+            return (
+              <li>
+                <a href={link.url}>• {link.name}</a>
+              </li>
+            );
+          })
+      }
+    </ul>
+  </div>
 </astro:card>
