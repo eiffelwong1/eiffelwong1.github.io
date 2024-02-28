@@ -3,7 +3,7 @@ eventName: "Distributed Systems Project"
 projectName: "Peer-to-Peer Collaborative Documents Editor"
 heroImage: ""
 pubDate: "Jun 2021"
-location: "Irvine, CA"
+location: "San Diego, CA"
 tech: [
   "Golang",
   "Javascript"

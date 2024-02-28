@@ -12,7 +12,7 @@ tech: [
   "ML / AI"
 ]
 links: [
-    {
+  {
     name: "Award (Most Innovative Use of AI)",
     url: "https://imeded.uci.edu/2019/03/01/imeded-release-notes-3-1-19/"
   },
