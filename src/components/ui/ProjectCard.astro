@@ -3,8 +3,8 @@ const { eventName, heroImage, date, location, projectName, links, tech } =
   Astro.props;
 ---
 
-<astro:card class="card bg-slate-100 p-6 rounded-3xl">
-  {heroImage && <img src={heroImage} alt="Project Photo" class="max-w-96" />}
+<astro:card class="card bg-slate-100 p-6 rounded-3xl min-w-96">
+  {heroImage && <img src={heroImage} alt="Project Photo" class="w-96" />}
   <div class="card-body">
     <h3 class="card-title">{eventName}</h3>
     <p>{date}</p>

@@ -1,0 +1,12 @@
+---
+const { project } = Astro.props;
+import ProjectCard from "../components/ui/ProjectCard.astro";
+---
+
+<div>
+  <h2 class="text-white">Projects</h2>
+  <div class="flex gap-4 items-stretch overflow-auto">
+    {project?.map((project: any) => <ProjectCard {...project.data} />)}
+  </div>
+  <div class="text-white">right</div>
+</div>

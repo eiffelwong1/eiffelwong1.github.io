@@ -1,7 +1,7 @@
 ---
 title: 'Season of good habit fall-2024'
-description: 'Inspired by GCP greg's your theme video'
-pubDate: 'March 2, 2024'
+description: "Inspired by GCP greg's your theme video"
+pubDate: 'Jul 02 2022'
 heroImage: ''
 ---
 

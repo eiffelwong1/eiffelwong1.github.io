@@ -1,36 +1,27 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Contacts from "../components/Home/Contacts.astro";
-import ProjectCard from "../components/ui/ProjectCard.astro";
 import { getCollection } from "astro:content";
 import OpenSourceCard from "../components/ui/OpenSourceCard.astro";
 import HeroSection from "../components/Home/HeroSection.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import ProjectSection from "./ProjectSection.astro";
 
 const open_source = (await getCollection("open_source")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-const project = (await getCollection("project")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+const project = (await getCollection("project")).sort((a, b) => {
+  return a.data.pubDate?.valueOf() - b.data.pubDate?.valueOf();
+});
 ---
 
 <MainLayout>
   <HeroSection />
-  <div class="bg-repeat">
+  <div class="bg-repeat flex flex-col gap-16">
     <div class="w-full">
       <Contacts />
     </div>
-    <div>
-      <h2 class="text-white">Projects</h2>
-      <div class="flex gap-4 items-center overflow-auto">
-        {project.map((project) => <ProjectCard {...project.data} />)}
-      </div>
-    </div>
+
     <div>
       <h2 class="text-white">Open Source Contribution</h2>
       <div class="flex gap-4 overflow-auto">
@@ -45,9 +36,7 @@ const project = (await getCollection("project")).sort(
           class="h-96 self-center"
         />
       </div>
-      <div>
-        <h2>Continue Improvements</h2>
-      </div>
     </div>
+    <ProjectSection project={project} />
   </div>
 </MainLayout>
