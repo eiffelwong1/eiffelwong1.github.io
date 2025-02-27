@@ -1,3 +1,7 @@
+# Status
+
+currently not maintained
+
 # Sing Wong's Personal Website
 
 built with astro, react, typescript, tailwindcss and sprikle of passion
